@@ -1,0 +1,51 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'phantomjs#1.9.8' ]
+2 info using npm@3.10.8
+3 info using node@v6.8.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData phantomjs#1.9.8
+8 silly fetchOtherPackageData phantomjs#1.9.8
+9 silly cache add args [ 'phantomjs#1.9.8', null ]
+10 verbose cache add spec phantomjs#1.9.8
+11 silly cache add parsed spec Result {
+11 silly cache add   raw: 'phantomjs#1.9.8',
+11 silly cache add   scope: null,
+11 silly cache add   escapedName: null,
+11 silly cache add   name: null,
+11 silly cache add   rawSpec: 'phantomjs#1.9.8',
+11 silly cache add   spec: '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8',
+11 silly cache add   type: 'local' }
+12 error addLocal Could not install /Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8
+13 silly fetchPackageMetaData Error: ENOENT: no such file or directory, open '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8'
+13 silly fetchPackageMetaData     at Error (native)
+13 silly fetchPackageMetaData  error for phantomjs#1.9.8 { Error: ENOENT: no such file or directory, open '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8'
+13 silly fetchPackageMetaData     at Error (native)
+13 silly fetchPackageMetaData   errno: -2,
+13 silly fetchPackageMetaData   code: 'ENOENT',
+13 silly fetchPackageMetaData   syscall: 'open',
+13 silly fetchPackageMetaData   path: '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8' }
+14 silly rollbackFailedOptional Starting
+15 silly rollbackFailedOptional Finishing
+16 silly runTopLevelLifecycles Finishing
+17 silly install printInstalled
+18 verbose stack Error: ENOENT: no such file or directory, open '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8'
+18 verbose stack     at Error (native)
+19 verbose cwd /Users/praneethkumar/Desktop/angular-unit-testing/app/js/test
+20 error Darwin 14.5.0
+21 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "phantomjs#1.9.8"
+22 error node v6.8.1
+23 error npm  v3.10.8
+24 error path /Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8
+25 error code ENOENT
+26 error errno -2
+27 error syscall open
+28 error enoent ENOENT: no such file or directory, open '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8'
+29 error enoent ENOENT: no such file or directory, open '/Users/praneethkumar/Desktop/angular-unit-testing/app/js/test/phantomjs#1.9.8'
+29 error enoent This is most likely not a problem with npm itself
+29 error enoent and is related to npm not being able to find a file.
+30 verbose exit [ -2, true ]

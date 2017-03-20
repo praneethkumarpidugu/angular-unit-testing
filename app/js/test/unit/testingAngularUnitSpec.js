@@ -26,8 +26,8 @@ describe('Testing Angular JS Test Suite', function () {
             });
 
             // We will check if the title is defined our not
-            expect($scope.title).tobeDefined();
-            expect($scope.title).tobe("Testing Angular js Applications");
+            expect(scope.title).toBeDefined();
+            expect(scope.title).toBe("Testing Angular js Applications");
             
         })
     });
