@@ -1,0 +1,27 @@
+{
+  "name": "angular-unit-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praneethkumarpidugu/angular-unit-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/praneethkumarpidugu/angular-unit-testing/issues"
+  },
+  "homepage": "https://github.com/praneethkumarpidugu/angular-unit-testing#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "jasmine": "^2.5.3",
+    "karma": "^1.5.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs-polyfill": "0.0.2"
+  }
+}
