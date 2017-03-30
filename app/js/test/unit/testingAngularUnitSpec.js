@@ -7,15 +7,18 @@ describe('Testing Angular JS Test Suite', function () {
     //Include angular app into our tests.
     beforeEach(module('testingAngularApp'));
     describe('Testing AngularJS Controller', function () {
-        var scope, ctrl;
-        beforeEach(inject(function ($controller, $rootScope) {
+        var scope, ctrl, httpBackend;
+        beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
             scope = $rootScope.$new();
             //We will controller variable ctrl to our angular controller
             ctrl = $controller('testingAngularCtrl', {$scope: scope});
+            httpBackend = $httpBackend;
         }));
 
         afterEach(function () {
            //cleanup code.
+            httpBackend.verifyNoOutstandingExpectation();
+            httpBackend.verifyNoOutstandingRequest();
         });
         //it block is used to describe single unit test
         it('should initialize title in scope', function () {
@@ -76,6 +79,22 @@ describe('Testing Angular JS Test Suite', function () {
             expect(scope.destinations.length).toBe(1);
             expect(scope.destinations[0].city).toBe("hyderabad");
             expect(scope.destinations[0].country).toBe("India");
+        });
+
+        it('should update weather for a specific destination', function () {
+            scope.destination = {
+                city: 'Melbourne',
+                country: 'Australia'
+            };
+            httpBackend.expectGET('http://api.openweathermap.org/data/2.5/weather?q='+
+                scope.destination.city + "&appid="+ scope.apiKey).respond({
+                    weather : [{ main: 'Rain', detail: 'Light Rain'}],
+                    main: {temp: 288}
+            });
+            scope.getWeather(scope.destination);
+            httpBackend.flush();
+            expect(scope.destination.weather.main).toBe('Rain');
+            expect(scope.destination.weather.temp).toBe(15);
         });
     });
 });
