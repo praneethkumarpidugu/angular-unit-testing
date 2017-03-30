@@ -7,12 +7,13 @@ describe('Testing Angular JS Test Suite', function () {
     //Include angular app into our tests.
     beforeEach(module('testingAngularApp'));
     describe('Testing AngularJS Controller', function () {
-        var scope, ctrl, httpBackend;
-        beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
+        var scope, ctrl, httpBackend, timeout;
+        beforeEach(inject(function ($controller, $rootScope, $httpBackend, $timeout) {
             scope = $rootScope.$new();
             //We will controller variable ctrl to our angular controller
             ctrl = $controller('testingAngularCtrl', {$scope: scope});
             httpBackend = $httpBackend;
+            timeout = $timeout;
         }));
 
         afterEach(function () {
@@ -95,6 +96,17 @@ describe('Testing Angular JS Test Suite', function () {
             httpBackend.flush();
             expect(scope.destination.weather.main).toBe('Rain');
             expect(scope.destination.weather.temp).toBe(15);
+        });
+        
+        it('should remove error message after a fixed period of time', function () {
+            scope.message = "error";
+            expect(scope.message).toBe('error');
+
+            //check for any messages and digest
+            scope.$apply();
+            timeout.flush();
+
+            expect(scope.message).toBeNull();
         });
     });
 });
