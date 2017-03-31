@@ -109,4 +109,47 @@ describe('Testing Angular JS Test Suite', function () {
             expect(scope.message).toBeNull();
         });
     });
+    
+    describe('Testing Angular Js Filter', function () {
+       it('should return only warm destinations', inject(function ($filter) {
+           var warmest = $filter("warmestDestinations");
+
+           var destinations = [
+               {
+                   city: 'Hyderabad',
+                   country: 'India',
+                   weather: {
+                       temp: 21
+                   }
+               },
+               {
+                   city: 'Toronto',
+                   country: 'Canada'
+               },
+               {
+                   city: 'Medak',
+                   country: 'India',
+                   weather: {
+                       temp: 13
+                   }
+               },
+               {
+                   city: 'Paris',
+                   country: 'France',
+                   weather: {
+                       temp: 24
+                   }
+               }
+           ];
+
+           expect(destinations.length).toBe(4);
+
+           //calling our filters
+           var warmDestinations = warmest(destinations, 15);
+
+           expect(warmDestinations.length).toBe(2);
+           expect(warmDestinations[0].city).toBe('Hyderabad');
+           expect(warmDestinations[1].city).toBe('Paris');
+       }));
+    });
 });
